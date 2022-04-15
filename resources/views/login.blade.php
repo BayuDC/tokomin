@@ -12,24 +12,8 @@
                         <h1 class="title">{{ config('app.name') }} - Login</h1>
                     </div>
                     <div class="block">
-                        <div class="field">
-                            <label class="label">Username</label>
-                            <div class="control">
-                                <input class="input @error('username') is-danger @enderror" type="text" placeholder="Username" name="username">
-                            </div>
-                            @error('username')
-                            <p class="help is-danger has-text-right">{{ $message }}</p>
-                            @enderror
-                        </div>
-                        <div class="field">
-                            <label class="label">Password</label>
-                            <div class="control">
-                                <input class="input @error('password') is-danger @enderror" type="password" placeholder="Password" name="password">
-                            </div>
-                            @error('password')
-                            <p class="help is-danger has-text-right">{{ $message }}</p>
-                            @enderror
-                        </div>
+                        @include('shared.from-input', ['name' => 'Username'])
+                        @include('shared.from-input', ['name' => 'Password', 'type' => 'password'])
                     </div>
                     <div class="block is-flex is-justify-content-end">
                         <div class="control">
