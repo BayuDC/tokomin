@@ -15,9 +15,14 @@
                         @include('shared.from-input', ['name' => 'Username'])
                         @include('shared.from-input', ['name' => 'Password', 'type' => 'password'])
                     </div>
+                    <div class="block">
+                        @if($message = session()->get('msg_error'))
+                        @include('shared.notification', ['message' => $message])
+                        @endif
+                    </div>
                     <div class="block is-flex is-justify-content-end">
                         <div class="control">
-                            <button class="button is-link">Login</button>
+                            <button type="submit" class="button is-link">Login</button>
                         </div>
                     </div>
                 </form>
