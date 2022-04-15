@@ -9,11 +9,13 @@
 </head>
 
 <body>
+    @include('components.navbar', ['active' => ''])
     <section class="section">
         <div class="container">
             @yield('content')
         </div>
     </section>
+    @stack('scripts')
 </body>
 
 </html>
