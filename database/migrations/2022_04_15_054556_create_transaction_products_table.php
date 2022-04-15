@@ -11,13 +11,10 @@ return new class extends Migration {
      * @return void
      */
     public function up() {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('fullname');
-            $table->string('username')->unique();
-            $table->string('password');
-            $table->enum('role', ['manager', 'worker']);
-            $table->timestamps();
+        Schema::create('transaction_products', function (Blueprint $table) {
+            $table->foreignId('transaction_id')->constrained('transactions', 'id')->cascadeOnDelete();
+            $table->foreignId('product_id')->nullable()->constrained('products', 'id')->nullOnDelete();
+            $table->unsignedInteger('count');
         });
     }
 
@@ -27,6 +24,6 @@ return new class extends Migration {
      * @return void
      */
     public function down() {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('transaction_products');
     }
 };
