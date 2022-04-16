@@ -9,9 +9,12 @@
 </head>
 
 <body>
-    @include('components.navbar', ['active' => ''])
+    @include('components.navbar', ['active' => isset($active) ? $active : ''])
     <section class="section">
         <div class="container">
+            <h1 class="title">
+                {{ $title }}
+            </h1>
             @yield('content')
         </div>
     </section>

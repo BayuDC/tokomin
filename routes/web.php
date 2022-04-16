@@ -17,7 +17,7 @@ use App\Http\Controllers\UserController;
 
 Route::middleware('auth')->group(function () {
     Route::get('/', function () {
-        return view('home');
+        return view('home', ['title' => config('app.name')]);
     });
 
     Route::resource('user', UserController::class);

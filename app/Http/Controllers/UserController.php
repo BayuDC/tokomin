@@ -12,7 +12,11 @@ class UserController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        //
+        return view('user.index', [
+            'active' => 'user',
+            'title' => 'Manage User',
+            'users' => User::all('id', 'fullname', 'role')
+        ]);
     }
 
     /**
