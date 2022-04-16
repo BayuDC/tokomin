@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,7 @@ Route::middleware('auth')->group(function () {
         return view('home');
     });
 
+    Route::resource('user', UserController::class);
     Route::get('/logout', [AuthController::class, 'logout']);
 });
 
