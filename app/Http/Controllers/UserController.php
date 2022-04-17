@@ -68,7 +68,10 @@ class UserController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function edit(User $user) {
-        //
+        return view('user.edit', [
+            'title' => 'Edit User',
+            'user' => $user
+        ]);
     }
 
     /**
@@ -79,7 +82,14 @@ class UserController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, User $user) {
-        //
+        $validated = $request->validate([
+            'fullname' => 'required|regex:/^[a-zA-Z\s]+$/',
+            'username' => 'required|regex:/^[a-zA-Z0-9\_]+$/',
+        ]);
+
+        $user->update($validated);
+
+        return redirect('/user');
     }
 
     /**
