@@ -25,7 +25,9 @@ class UserController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        //
+        return view('user.create', [
+            'title' => 'Add User',
+        ]);
     }
 
     /**
@@ -35,7 +37,15 @@ class UserController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        //
+        $validated = $request->validate([
+            'fullname' => 'required|regex:/^[a-zA-Z\s]+$/',
+            'username' => 'required|regex:/^[a-zA-Z0-9\_]+$/',
+            'password' => 'required|min:8',
+        ]);
+
+        User::create($validated);
+
+        return redirect('/user');
     }
 
     /**

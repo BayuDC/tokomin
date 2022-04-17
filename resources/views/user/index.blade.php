@@ -1,6 +1,9 @@
 @extends('layouts.main')
 
 @section('content')
+<div class="block">
+    <a href="/user/create" class="button is-success">Add User</a>
+</div>
 <div class="columns">
     <div class="column is-two-thirds">
         <div class="block">
