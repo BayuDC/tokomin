@@ -12,8 +12,8 @@
                         <h1 class="title">{{ config('app.name') }} - Login</h1>
                     </div>
                     <div class="block">
-                        @include('shared.from-input', ['name' => 'Username'])
-                        @include('shared.from-input', ['name' => 'Password', 'type' => 'password'])
+                        @include('shared.form-input', ['name' => 'Username'])
+                        @include('shared.form-input', ['name' => 'Password', 'type' => 'password'])
                     </div>
                     <div class="block">
                         @if($message = session()->get('msg_error'))
