@@ -99,6 +99,8 @@ class UserController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy(User $user) {
-        //
+        $user->delete();
+
+        return redirect('/user');
     }
 }
